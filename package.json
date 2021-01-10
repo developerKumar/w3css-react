@@ -19,6 +19,7 @@
     "@rollup/plugin-babel": "^5.2.2",
     "@rollup/plugin-node-resolve": "^11.0.1",
     "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "rollup": "^2.36.1"
   },
   "scripts": {
