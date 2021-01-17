@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "Mukul Kumar <mukulk133@gmail.com>",
   "license": "ISC",
-  "main": "lib/w3css-text.js",
+  "main": "lib/w3css-text.tsx",
   "directories": {
     "lib": "lib",
     "test": "__tests__"

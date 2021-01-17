@@ -5,7 +5,7 @@
   "keywords": [],
   "author": "Mukul Kumar <mukulk133@gmail.com>",
   "license": "ISC",
-  "main": "lib/w3css.js",
+  "main": "lib/w3css.tsx",
   "directories": {
     "lib": "lib",
     "test": "__tests__"
@@ -17,7 +17,8 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "build": "w3css-builder"
   },
   "dependencies": {
     "@devk/w3css-text": "^0.0.0"

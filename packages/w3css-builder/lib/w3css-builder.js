@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 const rollup = require("rollup");
 const path = require("path");
-const resolve = require("@rollup/plugin-node-resolve").default;
-const babel = require("@rollup/plugin-babel").default;
+// Add type script support to rollup
+const rollupTypescript = require("@rollup/plugin-typescript");
 
 const currentWorkingPath = process.cwd();
 const { main, name } = require(path.join(currentWorkingPath, "package.json"));
@@ -10,17 +10,17 @@ const { main, name } = require(path.join(currentWorkingPath, "package.json"));
 const inputPath = path.join(currentWorkingPath, main);
 
 // Little workaround to get package name without scope
-const fileName = name.replace("@cddev/", "");
+const fileName = name.replace("@devk/", "");
 
 // see below for details on the options
 const inputOptions = {
   input: inputPath,
-  external: ["react"],
   plugins: [
-    resolve(),
-    babel({
-      presets: ["@babel/preset-env", "@babel/preset-react"],
-      babelHelpers: "bundled",
+    rollupTypescript({
+      tsconfig: "../../tsconfig.json",
+      typescript: require("typescript"),
+      tslib: require("tslib"),
+      // useTsconfigDeclarationDir: false,
     }),
   ],
 };
@@ -38,10 +38,17 @@ const outputOptions = [
 
 async function build() {
   // create bundle
-  const bundle = await rollup.rollup(inputOptions);
+  console.log(inputPath, "Input Path");
+  const bundle = await rollup.rollup(inputOptions).catch((error) => {
+    console.log("InputOptions", inputOptions);
+    console.log(error);
+  });
   // loop through the options and write individual bundles
   outputOptions.forEach(async (options) => {
-    await bundle.write(options);
+    await bundle.write(options).catch((error) => {
+      console.log("Options", options);
+      console.error("Errors in output", error);
+    });
   });
 }
 
