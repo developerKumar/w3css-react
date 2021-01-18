@@ -20,6 +20,7 @@ Styling: styled-components
 Testing: Jest, React-testing library, sinon  
 commitizen  
 husky  
+lint-staged  
 deduplicate-yarn
 
 # How to add a new package

@@ -17,6 +17,7 @@
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
     "babel-loader": "^8.2.2",
+    "commitizen": "^4.2.3",
     "eslint": "^7.18.0",
     "eslint-config-airbnb-typescript": "^12.0.0",
     "eslint-plugin-import": "^2.22.1",
@@ -24,7 +25,9 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gh-pages": "^3.1.0",
+    "husky": "^4.3.8",
     "lerna": "^3.22.1",
+    "lint-staged": "^10.5.3",
     "prettier": "^2.2.1",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
@@ -40,8 +43,20 @@
     "build-storybook": "build-storybook",
     "deploy": "npm run build-storybook && gh-pages -d storybook-static",
     "tsc": "tsc --outDir dist --declarationDir dist --declaration true",
-    "prettier-format": "prettier --config .prettierrc '.' --ignore-path .prettierignore --write",
+    "format": "prettier --config .prettierrc '.' --ignore-path .prettierignore --write",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "commit": "cz"
+  },
+  "lint-staged": {
+    "*": [
+      "yarn run format",
+      "yarn run lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
