@@ -25,7 +25,6 @@
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gh-pages": "^3.1.0",
-    "husky": "^5.0.6",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
     "pinst": "^2.1.1",
@@ -46,12 +45,6 @@
     "tsc": "tsc --outDir dist --declarationDir dist --declaration true",
     "format": "prettier --config .prettierrc '.' --ignore-path .prettierignore --write",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "postinstall": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lerna run test"
-    }
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix"
   }
 }
