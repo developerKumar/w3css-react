@@ -28,6 +28,7 @@
     "husky": "^5.0.6",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
+    "pinst": "^2.1.1",
     "prettier": "^2.2.1",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
@@ -46,12 +47,6 @@
     "format": "prettier --config .prettierrc '.' --ignore-path .prettierignore --write",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
-    "commit": "cz",
     "postinstall": "husky install"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lerna run test"
-    }
   }
 }
