@@ -51,7 +51,7 @@
   "lint-staged": {
     "*": [
       "yarn run format",
-      "yarn run lint"
+      "yarn run lint "
     ]
   },
   "husky": {
