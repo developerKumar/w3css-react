@@ -1,7 +1,4 @@
-'use strict';
-
-module.exports = w3Css;
-
 function w3Css() {
-    // TODO
+  // TODO
 }
+module.exports = w3Css;
